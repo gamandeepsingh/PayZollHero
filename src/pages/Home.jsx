@@ -10,6 +10,7 @@ import {
   useAnimations,
 } from "@react-three/drei";
 import { GlobeLock, Menu, WalletMinimal, X } from "lucide-react";
+import CustomCursor from "../components/CustomCursor";
 
 useGLTF.preload("/robot.gltf");
 function Model(props) {
@@ -141,8 +142,9 @@ const Home = () => {
 
   return (
     <main>
-      <div className="w-screen h-screen flex justify-center items-center overflow-hidden bg-[#021526]">
+      <div className="w-screen h-screen flex justify-center items-center overflow-hidden bg-[#021526] cursor-none">
         {/*  */}
+        <CustomCursor />
         <div
           ref={divref}
           className="flex gap-[20px] justify-center relative w-full h-full"
@@ -155,7 +157,7 @@ const Home = () => {
               <div className=" w-full min-w-[100px] h-full flex justify-center pt-3 relative">
                 <WalletMinimal
                   ref={logoRef}
-                  className="text-indigo-400 h-[60px] w-[60px] md:h-[100px] md:w-[100px] object-contain cursor-pointer mt-5"
+                  className="text-indigo-400 h-[60px] w-[60px] md:h-[100px] md:w-[100px] object-contain  mt-5"
                 />
                 <div
                   ref={elanineRef}
@@ -166,9 +168,9 @@ const Home = () => {
                 <div ref={ham} className="md:hidden fixed top-10 right-10 z-50">
                   <button onClick={toggleMenu} className="text-white ">
                     {menuOpen ? (
-                      <X size={32} className="cursor-pointer z-50" />
+                      <X size={32} className=" z-50" />
                     ) : (
-                      <Menu size={32} className="cursor-pointer" />
+                      <Menu size={32} className="" />
                     )}
                   </button>
                 </div>
@@ -178,9 +180,9 @@ const Home = () => {
                   } md:hidden px-4 z-40`}
                 >
                   <ul className="text-lg text-center mt-20 bg-white/10 w-full mx-4 rounded-2xl">
-                    <li className="py-2 cursor-pointer">Home</li>
-                    <li className="py-2 cursor-pointer">Features</li>
-                    <li className="py-2 cursor-pointer">How It Works</li>
+                    <li className="py-2 ">Home</li>
+                    <li className="py-2 ">Features</li>
+                    <li className="py-2 ">How It Works</li>
                   </ul>
                 </div>
               </div>
@@ -200,9 +202,9 @@ const Home = () => {
                   ref={leftListRef}
                   className="w-full flex flex-col items-start text-xs mt-2 gap-2"
                 >
-                  <li className="uppercase cursor-pointer">Home</li>
-                  <li className="uppercase  cursor-pointer">Features</li>
-                  <li className="relative uppercase  cursor-pointer">
+                  <li className="uppercase ">Home</li>
+                  <li className="uppercase  ">Features</li>
+                  <li className="relative uppercase  ">
                     How It Works
                     <span className="absolute -bottom-1 left-0 translate-y-full text-nowrap">
                       & many more...
@@ -261,7 +263,7 @@ const Home = () => {
               // }}
               className="opacity-100 text-white w-full mt-5 sm:mt-0 flex justify-start -translate-x-1/2 sm:translate-x-0 md:justify-end p-5"
             >
-              {/* <p className='w-fit flex items-center h-fit text-nowrap cursor-pointer'><IoIosArrowRoundDown /> Scroll down</p> */}
+              {/* <p className='w-fit flex items-center h-fit text-nowrap '><IoIosArrowRoundDown /> Scroll down</p> */}
             </div>
             <div className="relative hidden md:flex md:flex-col">
               <p
@@ -340,8 +342,11 @@ const Home = () => {
           />
         </div>
 
-        <div ref={globeref} className="absolute bottom-4 left-0 animate-float-medium">
-          <GlobeLock className="w-40 h-40 text-white opacity-10 -rotate-12"/>
+        <div
+          ref={globeref}
+          className="absolute bottom-4 left-0 animate-float-medium"
+        >
+          <GlobeLock className="w-40 h-40 text-white opacity-10 -rotate-12" />
         </div>
       </div>
     </main>
